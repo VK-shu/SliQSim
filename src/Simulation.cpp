@@ -54,6 +54,12 @@ void Simulator::sim_qasm_file(std::string qasm)
                 getline(inStr_ss, inStr, '[');
                 getline(inStr_ss, inStr, ']');
                 init_simulator(stoi(inStr));
+                
+                if (sim_type == 1 && n > 50) 
+                {
+                    std::cerr << "[Error]: The all-amplitude mode will print the whole state vector, which is too long for large qubit number. Please consider using the sampling mode." << std::endl;
+                    assert(sim_type != 1 || n <= 50); 
+                }
             }
             else if (inStr == "creg")
             {
@@ -255,6 +261,7 @@ void Simulator::sim_qasm(std::string qasm)
     }
     if (sim_type == 1)
     {
+        
         if (isMeasure == 1)
         {
             std::cerr << "[Warning]: measurement detected. The final statevector will collapse based on the measurement outcome." << std::endl;

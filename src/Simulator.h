@@ -102,7 +102,7 @@ private:
     int inc; // add inc BDDs when overflow occurs, used in alloc_BDD
     int shift; // # of right shifts
     int shots;
-    int sim_type; // 0: statevector, 1: measure
+    int sim_type; // 1: statevector, 2: measure
     bool isMeasure;
     bool isQuery;
     bool isReorder;
