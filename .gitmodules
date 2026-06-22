@@ -1,0 +1,3 @@
+[submodule "external/rus"]
+	path = external/rus
+	url = https://github.com/VK-shu/rus.git
